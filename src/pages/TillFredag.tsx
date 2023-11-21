@@ -1,20 +1,16 @@
-import React from "react";
-import Basic from "../components/Basic";
-import { useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import Basic from "../components/ATM/Basic";
+import { MouseEvent } from "react";
+import { URLOptions } from "../types/MainTypes";
+import NavigationBar from "../components/NavigationBar";
+import { useNavigate } from "react-router-dom";
+import { Button, FormSelect, Image, Dropdown } from "react-bootstrap";
+
 type Props = {};
 
-const TillFredag = (props: Props) => {
-  const navigate = useNavigate();
+const TillFredag = ({}) => {
   return (
     <>
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        To home
-      </button>
+      <NavigationBar />
       <Basic />
     </>
   );
