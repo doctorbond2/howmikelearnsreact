@@ -8,7 +8,7 @@ export interface TTodo {
   task?: string;
   date?: string;
   completed?: boolean | undefined;
-  id?: number;
+  id?: string | number;
 }
 export interface Posts {
   userId: number;

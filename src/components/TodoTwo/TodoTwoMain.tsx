@@ -15,18 +15,20 @@ const defaultTodo: TTodo = {
 const TodoTwoMain: React.FC<Props> = ({}) => {
   const [todo, setTodo] = useState<TTodo>();
   const [todos, setTodos] = useState<TTodo[]>([]);
+  const [activeEdit, setActiveEdit] = useState<boolean>(false);
 
   const handleTodoAdd = (e: React.FormEvent) => {
+    const rN = Math.floor((Math.random() * 1000) ** 9);
+    console.log(rN);
     e.preventDefault();
-    const target = e.target as HTMLFormElement;
+    // const target = e.target as HTMLFormElement;
     if (todo?.date && todo.task) {
-      setTodos([...todos, todo]);
+      setTodos([...todos, { ...todo, id: rN }]);
     } else {
       alert("Insert all values!");
     }
-    console.log(target);
+    (e.currentTarget as HTMLFormElement).reset();
   };
-
   useEffect(() => {
     console.log(todos);
   }, [todo]);
@@ -37,7 +39,9 @@ const TodoTwoMain: React.FC<Props> = ({}) => {
   return (
     <>
       <TTInputField {...{ handleTodoAdd, setTodo, todo }} />
-      <TTodoList {...{ todos, setTodo, setTodos, todo }} />
+      <TTodoList
+        {...{ todos, setTodo, setTodos, activeEdit, setActiveEdit, todo }}
+      />
     </>
   );
 };

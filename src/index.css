@@ -58,6 +58,24 @@
   width: 500px;
 }
 
+.x-remove-todo-button {
+  right: 0;
+  position: absolute;
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+}
+.x-remove-todo-button:hover {
+  background-color: lightgray;
+}
+
+.editTTodo {
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 body {
   background-color: white;
 }

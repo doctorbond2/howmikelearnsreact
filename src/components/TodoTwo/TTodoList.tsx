@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { TTodo } from "../../types/TodoTypes";
 import { Container, Button } from "react-bootstrap";
+import TTModal from "./TTModal";
 
 import TTodoCard from "./TTodoCard";
 
@@ -9,42 +10,82 @@ type Props = {
   setTodo: React.Dispatch<React.SetStateAction<TTodo | undefined>>;
   setTodos: (value: React.SetStateAction<TTodo[]>) => void;
   todo: TTodo | undefined;
+  activeEdit: boolean;
+  setActiveEdit: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const TTodoList: React.FC<Props> = ({ todos, setTodo, setTodos, todo }) => {
+const TTodoList: React.FC<Props> = ({
+  todos,
+  setTodo,
+  setTodos,
+  todo,
+  activeEdit,
+  setActiveEdit,
+}) => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => {
+    setShow(true);
+  };
+  false;
   return (
     <>
+      {/* <TTModal /> */}
       <h1>Todos:</h1>
       <div style={{ display: "flex" }}>
-        <h3>Unfinished Todos:</h3>
         <section className="w-50">
+          <h3>Unfinished Todos:</h3>
           {todos.map(
             (x, i) =>
               !x.completed && (
-                <div>
+                <ul>
                   <TTodoCard
-                    key={`uc-${x.id}`}
-                    uniqueID={x.id}
+                    key={`uc-${i}`}
+                    uniqueID={`uc-${i}`}
                     todo={x}
-                    {...{ todos, setTodo, setTodos }}
+                    {...{ todos, setTodo, setTodos, handleShow }}
                   />
-                </div>
+
+                  <TTModal
+                    {...{
+                      handleClose,
+                      show,
+                      setShow,
+                      todo,
+                      setTodo,
+                      activeEdit,
+                      setActiveEdit,
+                    }}
+                  />
+                </ul>
               )
           )}
         </section>
+
         <section className="w-50">
           <h3>Finished Todos:</h3>
           {todos.map(
             (x, i) =>
               x.completed && (
-                <div>
+                <ul>
                   <TTodoCard
-                    key={`c-${x.id}`}
-                    uniqueID={x.id}
+                    key={`c-${i}`}
+                    uniqueID={`c-${i}`}
                     todo={x}
-                    {...{ todos, setTodo, setTodos }}
+                    {...{ todos, setTodo, setTodos, handleShow }}
                   />
-                </div>
+                  <TTModal
+                    {...{
+                      handleClose,
+                      show,
+                      setShow,
+                      todo,
+                      setTodo,
+                      activeEdit,
+                      setActiveEdit,
+                    }}
+                  />
+                </ul>
               )
           )}
         </section>
