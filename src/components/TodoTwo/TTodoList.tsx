@@ -6,10 +6,10 @@ import TTModal from "./TTModal";
 import TTodoCard from "./TTodoCard";
 
 type Props = {
-  todos: TTodo[];
-  setTodo: React.Dispatch<React.SetStateAction<TTodo | undefined>>;
+  todos: TTodo[] | undefined;
+  setTodo: React.Dispatch<React.SetStateAction<TTodo>>;
   setTodos: (value: React.SetStateAction<TTodo[]>) => void;
-  todo: TTodo | undefined;
+  todo?: TTodo | undefined;
   activeEdit: boolean;
   setActiveEdit: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -18,7 +18,6 @@ const TTodoList: React.FC<Props> = ({
   todos,
   setTodo,
   setTodos,
-  todo,
   activeEdit,
   setActiveEdit,
 }) => {
@@ -35,7 +34,7 @@ const TTodoList: React.FC<Props> = ({
       <div style={{ display: "flex" }}>
         <section className="w-50">
           <h3>Unfinished Todos:</h3>
-          {todos.map(
+          {todos?.map(
             (x, i) =>
               !x.completed && (
                 <ul>
@@ -47,14 +46,16 @@ const TTodoList: React.FC<Props> = ({
                   />
 
                   <TTModal
+                    todo={x}
                     {...{
                       handleClose,
                       show,
                       setShow,
-                      todo,
                       setTodo,
                       activeEdit,
                       setActiveEdit,
+                      setTodos,
+                      todos,
                     }}
                   />
                 </ul>
@@ -64,7 +65,7 @@ const TTodoList: React.FC<Props> = ({
 
         <section className="w-50">
           <h3>Finished Todos:</h3>
-          {todos.map(
+          {todos?.map(
             (x, i) =>
               x.completed && (
                 <ul>
@@ -75,14 +76,16 @@ const TTodoList: React.FC<Props> = ({
                     {...{ todos, setTodo, setTodos, handleShow }}
                   />
                   <TTModal
+                    todo={x}
                     {...{
                       handleClose,
                       show,
                       setShow,
-                      todo,
                       setTodo,
                       activeEdit,
                       setActiveEdit,
+                      todos,
+                      setTodos,
                     }}
                   />
                 </ul>

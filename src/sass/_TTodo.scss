@@ -12,4 +12,15 @@
 .editTTodo {
   cursor: pointer;
   width: fit-content;
+  font-family:Georgia, 'Times New Roman', Times, serif
+}
+.TT-input-form {
+
+}
+.TT-todo-date-input {
+  height: 100px;
+}
+.TT-todo-task-input {
+  height: 100px;
+  vertical-align: top;
 }

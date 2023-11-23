@@ -5,7 +5,7 @@ import TTModal from "./TTModal";
 
 type Props = {
   todo: TTodo;
-  setTodo: React.Dispatch<React.SetStateAction<TTodo | undefined>>;
+  setTodo: React.Dispatch<React.SetStateAction<TTodo>>;
   todos: TTodo[];
   setTodos: (value: React.SetStateAction<TTodo[]>) => void;
   uniqueID: string;
@@ -20,7 +20,7 @@ const TTodoCard: React.FC<Props> = ({
   uniqueID,
   handleShow,
 }) => {
-  const { task, completed, date } = todo;
+  const { task, completed, date, id } = todo;
   const handleClick = () => {
     setTodo({ ...todo, completed: !todo.completed });
     setTodos(

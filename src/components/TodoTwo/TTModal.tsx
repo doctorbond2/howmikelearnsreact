@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { TTodo } from "../../types/TodoTypes";
 import { useState } from "react";
@@ -6,18 +6,47 @@ type Props = {
   show: boolean;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
   handleClose: () => void;
-  setTodo: React.Dispatch<React.SetStateAction<TTodo | undefined>>;
+  setTodo: React.Dispatch<React.SetStateAction<TTodo>>;
   todo?: TTodo | undefined;
+  setTodos: (value: React.SetStateAction<TTodo[]>) => void;
+  todos: TTodo[];
 };
 
-const TTModal: React.FC<Props> = ({ handleClose, show, setTodo, todo }) => {
+const TTModal: React.FC<Props> = ({
+  handleClose,
+  show,
+  setTodo,
+  todo,
+  setTodos,
+  todos,
+  setShow,
+}) => {
   const [editedTodo, setEditedTodo] = useState<TTodo>({ ...todo });
   //Modal control
-  const handleTodoEdit = (e: React.FormEvent) => {
+  const todoEditAdd = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(editedTodo);
+    setTodos(
+      todos.map((x, i) => {
+        if (x.id === editedTodo.id) {
+          console.log("perfect");
+          return { ...editedTodo };
+        } else {
+          return x;
+        }
+      })
+    );
+    setShow(false);
   };
-
+  const handleEditChange = (
+    e: React.ChangeEvent,
+    targetProperty: keyof TTodo
+  ) => {
+    const { value } = e.target as HTMLInputElement;
+    setEditedTodo({ ...editedTodo, [targetProperty]: value });
+  };
+  useEffect(() => {
+    console.log(editedTodo);
+  }, [editedTodo]);
   return (
     <>
       <Modal
@@ -27,16 +56,27 @@ const TTModal: React.FC<Props> = ({ handleClose, show, setTodo, todo }) => {
         keyboard={false}
       >
         <Modal.Body>
-          <form className="TT-input-form">
+          <form className="" onSubmit={todoEditAdd}>
             <input
               name="date"
               type="date"
-              className="xjexsbox"
+              className="TT-todo-date-input"
               defaultValue={todo?.date}
+              onChange={(e) => {
+                handleEditChange(e, "date");
+              }}
             />
-            <input name="task" type="text" defaultValue={todo?.task} />
+            <input
+              name="task"
+              type="text"
+              className="TT-todo-task-input"
+              defaultValue={todo?.task}
+              onChange={(e) => {
+                handleEditChange(e, "task");
+              }}
+            />
 
-            <button onClick={handleTodoEdit}>Save changes</button>
+            <button type="submit">Save changes</button>
           </form>
         </Modal.Body>
         <Modal.Footer>
