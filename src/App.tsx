@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import TodoListTest from "./pages/TodoListTest";
 import TodoTwo from "./pages/TodoTwo";
 import FetchAPIB from "./pages/FetchAPIB";
+import P1Pokemon from "./pages/P1Pokemon";
 
 interface Props {}
 const App: React.FC<Props> = () => {
@@ -28,6 +29,7 @@ const App: React.FC<Props> = () => {
           <Route path="/TodoListTest" element={<TodoListTest />}></Route>
           <Route path="/TodoTwo" element={<TodoTwo />}></Route>
           <Route path="/FetchAPIB" element={<FetchAPIB />}></Route>
+          <Route path="/P1Pokemon" element={<P1Pokemon />}></Route>
           <Route
             path="/RedirectTodoListTest"
             element={<Navigate to="TodoListTest" />}

@@ -14,6 +14,7 @@ const NavigationBar = (props: Props) => {
     { value: "TodoListTest", label: "Todolist" },
     { value: "TodoTwo", label: "TodoTwo" },
     { value: "FetchAPIB", label: "FetchAPIB" },
+    { value: "P1Pokemon", label: "P1Pokemon" },
   ];
   const navigateValue = (value: string) => {
     navigate(`/${value}`);
@@ -22,6 +23,7 @@ const NavigationBar = (props: Props) => {
     <>
       <header className="navsi">
         <Button
+          style={{ marginLeft: "4%" }}
           onClick={() => {
             navigate("/");
           }}

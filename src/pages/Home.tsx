@@ -1,16 +1,7 @@
 import React, { ChangeEvent } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import NavigationBar from "../components/NavigationBar";
-import {
-  Navbar,
-  Nav,
-  FormSelect,
-  Button,
-  NavDropdown,
-  Dropdown,
-  Image,
-} from "react-bootstrap";
-import Select from "react-select";
+
 interface Props {}
 
 const Home: React.FC<Props> = (props) => {
