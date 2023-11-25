@@ -10,8 +10,6 @@ export const firstCharToUpperCase = (
 };
 export default firstCharToUpperCase;
 
-//funktion tar abilities.ability
-//sorterar sedan arr.
 export const abilityDraft = (arr: Ability[]): string[] => {
   const abilityDraft = new Array(4).fill("");
   arr.forEach((x, i) => {

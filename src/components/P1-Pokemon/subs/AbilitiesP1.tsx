@@ -20,23 +20,21 @@ const AbilitiesP1: React.FC<Props> = ({ abilities }) => {
   }, [abilities]);
 
   return (
-    <div>
-      <Container className="P1-abilities-container w-25">
-        <h2>Main Abilities</h2>
-        <Row>
-          {abilities &&
-            pokemonAbilities.map((x: string, i) => (
-              <Col className="col-6">
-                <h5>
-                  <a className="P1-ability-name">
-                    {x && firstCharToUpperCase(x)}
-                  </a>
-                </h5>
-              </Col>
-            ))}
-        </Row>
-      </Container>
-    </div>
+    <Container className="P1-abilities-container">
+      <h5 style={{ fontFamily: "Gill Sans" }}>Main Abilities</h5>
+      <Row>
+        {abilities &&
+          pokemonAbilities.map((x: string, i) => (
+            <Col className="col-6 P1-col-ability-style">
+              <h5>
+                <p className="P1-ability-name">
+                  {x && firstCharToUpperCase(x)}
+                </p>
+              </h5>
+            </Col>
+          ))}
+      </Row>
+    </Container>
   );
 };
 

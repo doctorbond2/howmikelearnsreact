@@ -1,11 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import P1Pokemon from "./P1Pokemon";
+import { PokeBundle } from "../../types/PokeTypes";
 
 type Props = {};
 
 const P1Dropdown: React.FC<Props> = ({}) => {
-  const [jsonData, setJsonData] = useState<any>(null);
+  const [jsonData, setJsonData] = useState<Partial<PokeBundle>>({});
   const [pokeURL, setPokeURL] = useState<any>(null);
   const [showPokemon, setShowPokemon] = useState<boolean>(false);
   useEffect(() => {
@@ -15,6 +16,7 @@ const P1Dropdown: React.FC<Props> = ({}) => {
         const json: any = await response.json();
         setJsonData(json);
         console.log(json.results);
+        console.log(json);
       } catch (error) {
         console.log("error", error);
       }
@@ -30,7 +32,7 @@ const P1Dropdown: React.FC<Props> = ({}) => {
     <>
       <select onChange={handlePokemonChange}>
         {jsonData &&
-          jsonData.results.map((x, i) => (
+          jsonData.results?.map((x, i) => (
             <option value={x.url}>{x.name}</option>
           ))}
       </select>

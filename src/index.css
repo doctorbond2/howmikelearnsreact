@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import "https://fonts.googleapis.com/css2?family=Estonia&family=Montserrat&family=Open+Sans:wght@300&family=Poppins&family=Raleway:wght@300;400&family=Urbanist:wght@100&display=swap%27";
 .ATM-base-style {
   background-color: rgb(172, 164, 164);
   height: 600px;
@@ -93,6 +94,75 @@
 .P1-ability-name {
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.P1-col-ability-style {
+  background-color: lightcoral;
+  border: 1px solid black;
+  margin-bottom: 2px;
+  border-radius: 3px;
+}
+
+.P1-pokecard-Card-Header {
+  background-color: blue;
+}
+
+.P1-card-image-fire {
+  background: linear-gradient(#ed3f0d, black);
+}
+
+.P1-card-image-grass {
+  background: linear-gradient(#72c034, black);
+}
+
+.P1-card-image-normal {
+  background: linear-gradient(#a9ba1e, black);
+}
+
+.P1-card-image-water {
+  background: linear-gradient(#2e8be4, rgb(22, 22, 22));
+}
+
+.P1-card-image-bug {
+  background: linear-gradient(#a9ba1e, black);
+}
+
+.P1-card-image-fighting {
+  background: linear-gradient(#743725, black);
+}
+
+.P1-card-image-psychic {
+  background: linear-gradient(rgb(255, 96, 122), purple, black);
+}
+
+.P1-card-image-ghost {
+  background: linear-gradient(#605eb0, black);
+}
+
+.P1-card-image-dragon {
+  background: linear-gradient(#7760de, black);
+}
+
+.P1-card-image-ice {
+  background: linear-gradient(#6fd5f7, black);
+}
+
+.P1-card-image-rock {
+  background: linear-gradient(#9e863c, black);
+}
+
+.P1-card-image-poison {
+  background: linear-gradient(#944896, black);
+}
+
+.P1-card-image-electric {
+  background: linear-gradient(#f5b615, black);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {

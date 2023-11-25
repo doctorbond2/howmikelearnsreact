@@ -2,6 +2,12 @@
 @import "sass/Todo";
 @import "sass/TTodo";
 @import "sass/P1-Pokemon";
+@import "https://fonts.googleapis.com/css2?family=Estonia&family=Montserrat&family=Open+Sans:wght@300&family=Poppins&family=Raleway:wght@300;400&family=Urbanist:wght@100&display=swap%27";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 $primary: black;
 body {
   background-color: white;
