@@ -90,6 +90,11 @@
   background-color: rgb(60, 60, 55);
 }
 
+.P1-ability-name {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 body {
   background-color: white;
 }
