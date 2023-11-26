@@ -11,6 +11,8 @@ const P1Dropdown: React.FC<Props> = ({}) => {
   const [typesData, SetTypesData] = useState<Partial<Result>[]>([]);
   const [pokeURL, setPokeURL] = useState<any>(null);
   const [showPokemon, setShowPokemon] = useState<boolean>(false);
+  const [sortedPokemon, setSortedPokemon] = useState<Partial<string>[]>([]);
+  const [currentType, setCurrentType] = useState<string>("");
 
   useEffect(() => {
     const fetchData = async (url: string) => {
@@ -22,7 +24,6 @@ const P1Dropdown: React.FC<Props> = ({}) => {
         param && param === "type"
           ? SetTypesData(json.results)
           : setJsonData(json);
-        console.log(json.results);
         console.log(json);
       } catch (error) {
         console.log("error", error);
@@ -32,39 +33,62 @@ const P1Dropdown: React.FC<Props> = ({}) => {
     fetchData("https://pokeapi.co/api/v2/type");
   }, []);
 
-  const handlePokemonChange = (e: ChangeEvent) => {
+  useEffect(() => {
+    if (jsonData) {
+      const sortedNames = jsonData.results?.map((x: Result, i) => {
+        if (currentType === x.name) {
+          return currentType;
+        } else {
+          console.log("Type not found", x.name);
+        }
+      });
+      console.log("Sorted Names", sortedNames);
+    }
+  }, [currentType]);
+  const handlePokemonChange = async (e: ChangeEvent) => {
     const url = (e.currentTarget as HTMLSelectElement).value;
     console.log(url);
     setPokeURL(url);
+    try {
+      const response: any = await fetch(url);
+      const json: any = await response.json();
+      json && console.log("THE ID", json.types[0].type.name);
+      setCurrentType(json.types[0].type.name);
+      console.log("Current Type:", currentType);
+    } catch (error) {
+      console.log("fail to fetch poketype", error);
+    }
+  };
+  const handleTypeChange = (e: ChangeEvent) => {
+    const { value } = e.target as HTMLSelectElement;
+    setCurrentType(value);
   };
   return (
     <>
       <div className="P1-dropdown-wrap">
-        <div
-          style={{
-            fontSize: "1.1rem",
-            width: "fit-content",
-          }}
-        >
+        <div className="P1-select-siderbar">
           {typesData && (
             <select style={{ height: "fit-content" }}>
               {typesData.map((type, i) => (
-                <option>{firstCharToUpperCase(type.name)}</option>
+                <option value={type.name}>
+                  {firstCharToUpperCase(type.name)}
+                </option>
               ))}
             </select>
           )}
+          <select
+            onChange={handlePokemonChange}
+            style={{ height: "fit-content" }}
+          >
+            {jsonData &&
+              jsonData.results?.map((x, i) => (
+                <option key={`op-${i}`} value={x.url}>
+                  {firstCharToUpperCase(x.name)}
+                </option>
+              ))}
+          </select>
         </div>
-        <select
-          onChange={handlePokemonChange}
-          style={{ height: "fit-content" }}
-        >
-          {jsonData &&
-            jsonData.results?.map((x, i) => (
-              <option key={`op-${i}`} value={x.url}>
-                {firstCharToUpperCase(x.name)}
-              </option>
-            ))}
-        </select>
+
         {/* <button
         onClick={() => {
           setShowPokemon(!showPokemon);

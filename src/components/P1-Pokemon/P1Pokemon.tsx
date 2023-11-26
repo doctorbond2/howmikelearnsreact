@@ -19,7 +19,7 @@ const P1Pokemon: React.FC<Props> = ({ pokeURL }) => {
         const response: any = await fetch(pokeURL);
         const json: any = await response.json();
         setPokeData(json);
-        console.log(json);
+        console.log("Pokedata", json);
       } catch (error) {
         console.log("error", error);
       }
