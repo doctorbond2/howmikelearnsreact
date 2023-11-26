@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import P1Pokemon from "./P1Pokemon";
 import { PokeBundle, Result } from "../../types/PokeTypes";
 import firstCharToUpperCase from "../../hooks/minifunctions";
+import { Type } from "../../types/PokeTypes";
 
 type Props = {};
 
@@ -13,6 +14,7 @@ const P1Dropdown: React.FC<Props> = ({}) => {
   const [showPokemon, setShowPokemon] = useState<boolean>(false);
   const [sortedPokemon, setSortedPokemon] = useState<Partial<string>[]>([]);
   const [currentType, setCurrentType] = useState<string>("");
+  const [currentPokemon, setCurrentPokemon] = useState<string>("");
 
   useEffect(() => {
     const fetchData = async (url: string) => {
@@ -39,36 +41,79 @@ const P1Dropdown: React.FC<Props> = ({}) => {
         if (currentType === x.name) {
           return currentType;
         } else {
-          console.log("Type not found", x.name);
+          null;
         }
       });
-      console.log("Sorted Names", sortedNames);
+      // console.log("Sorted Names", sortedNames);
     }
   }, [currentType]);
-  const handlePokemonChange = async (e: ChangeEvent) => {
+  const handlePokemonChange = (e: ChangeEvent) => {
     const url = (e.currentTarget as HTMLSelectElement).value;
-    console.log(url);
+
     setPokeURL(url);
-    try {
-      const response: any = await fetch(url);
-      const json: any = await response.json();
-      json && console.log("THE ID", json.types[0].type.name);
-      setCurrentType(json.types[0].type.name);
-      console.log("Current Type:", currentType);
-    } catch (error) {
-      console.log("fail to fetch poketype", error);
+  };
+  const handleTypeChange = async (e: ChangeEvent) => {
+    const { value } = e.target as HTMLSelectElement;
+    console.log("selected TYPE:", value);
+    setCurrentType(value);
+
+    if (jsonData) {
+      try {
+        const sortList: any[] = await Promise.all(
+          jsonData.results?.map(async (x) => {
+            const response: any = await fetch(x.url);
+            const json: any = await response.json();
+            json && console.log("test2", json.types);
+            return json;
+          }) || sortedPokemon
+        );
+        sortList && console.log("sortlist", sortList);
+        const sortedPoki: string[] = sortList.filter((x: any) => {
+          const typeName1: any = x[0].type.name ? x[0].type.name : "";
+          const typeName2 = x[1].type.name ? x[1].type.name : "";
+        });
+      } catch (error) {
+        console.log("fail to fetch poketype", error);
+      }
+      try {
+        const sortedPoki: string[] = jsonData.results?.filter(async (x, i) => {
+          const response: any = await fetch(x.url);
+          const json: any = await response.json();
+          if (json.types) {
+            const typeName1 = json.types[0].type.name
+              ? json.types[0].type.name
+              : "";
+            const typeName2 = json.types[1].type.name
+              ? json.types[1].type.name
+              : "";
+            // json && console.log("FETCHED TYPE", json.types[0].type.name);
+            if (typeName1 === currentType || typeName2 === currentType) {
+              console.log(`CORRECT: ${x.name} matches with ${currentType}`);
+              return x.name;
+            } else {
+            }
+          }
+        });
+        sortedPoki && setSortedPokemon([...sortedPoki]);
+        sortedPoki && console.log("sorted pokemon:", sortedPokemon);
+
+        // json && console.log("THE ID", json.types[0].type.name);
+        // json && setCurrentType(json.types[0].type.name);
+      } catch (error) {
+        console.log("fail to fetch poketype", error);
+      }
     }
   };
-  const handleTypeChange = (e: ChangeEvent) => {
-    const { value } = e.target as HTMLSelectElement;
-    setCurrentType(value);
-  };
+
   return (
     <>
       <div className="P1-dropdown-wrap">
         <div className="P1-select-siderbar">
           {typesData && (
-            <select style={{ height: "fit-content" }}>
+            <select
+              style={{ height: "fit-content" }}
+              onChange={handleTypeChange}
+            >
               {typesData.map((type, i) => (
                 <option value={type.name}>
                   {firstCharToUpperCase(type.name)}

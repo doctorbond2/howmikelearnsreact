@@ -28,7 +28,7 @@ const AbilitiesP1: React.FC<Props> = ({ abilities }) => {
       <Row>
         {abilities &&
           pokemonAbilities.map((x: string, i) => (
-            <Col className="col-6 P1-col-ability-style">
+            <Col key={i} className="col-6 P1-col-ability-style">
               <h5>
                 <p className="P1-ability-name">
                   {x && firstCharToUpperCase(x)}
