@@ -20,8 +20,11 @@ const AbilitiesP1: React.FC<Props> = ({ abilities }) => {
   }, [abilities]);
 
   return (
-    <Container className="P1-abilities-container">
-      <h5 style={{ fontFamily: "Gill Sans" }}>Main Abilities</h5>
+    <Container
+      className="P1-abilities-container"
+      style={{ fontFamily: "Raleway" }}
+    >
+      <h5>Main Abilities</h5>
       <Row>
         {abilities &&
           pokemonAbilities.map((x: string, i) => (

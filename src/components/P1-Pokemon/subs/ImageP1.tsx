@@ -26,7 +26,10 @@ const ImageP1: React.FC<Props> = ({ imageContent, types }) => {
   return (
     <>
       {activeImage ? (
-        <div className={`P1-card-image-${pokeType?.type?.name}`}>
+        <div
+          className={`P1-card-image-${pokeType?.type?.name} asd11`}
+          data-color={"Hello"}
+        >
           <img src={activeImage} />
         </div>
       ) : (

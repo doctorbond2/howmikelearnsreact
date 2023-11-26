@@ -26,28 +26,45 @@ const P1Pokemon: React.FC<Props> = ({ pokeURL }) => {
     };
     fetchData();
   }, [pokeURL]);
-  const { name, abilities, id, sprites, types }: Pokedex = pokeData;
+  const { name, abilities, id, sprites, types, stats }: Pokedex = pokeData;
 
   return (
     <>
-      <Card className="w-50">
+      <Card
+        className="w-50"
+        style={{
+          backgroundColor: "lightblue",
+          border: "1px solid black",
+          fontFamily: "Kdam Thmor Pro",
+        }}
+      >
         <Card.Header>
-          <Card.Title>
+          <Card.Title
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
             <h1>
               #{id && id} {}
               {pokeData && firstCharToUpperCase(name)}
             </h1>
+            <div>
+              {types &&
+                types.map((x, i) => (
+                  <h5>{firstCharToUpperCase(x.type?.name)}</h5>
+                ))}
+            </div>
           </Card.Title>
         </Card.Header>
         {pokeData && sprites && (
           <ImageP1
-            imageContent={sprites?.other?.["official-artwork"]?.front_default}
+            imageContent={sprites?.other?.["official-artwork"]?.front_shiny}
             {...{ types }}
           />
         )}
-        <Card.Body>
-          <StatsP1 />
-        </Card.Body>
+        <Card.Body>{pokeData && <StatsP1 {...{ stats }} />}</Card.Body>
         <Card.Footer>
           {pokeData && abilities && abilities && (
             <AbilitiesP1 abilities={pokeData && abilities} />

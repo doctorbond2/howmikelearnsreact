@@ -1,5 +1,6 @@
 .P1Main {
   background-color: rgb(60, 60, 55);
+
 }
 .P1-abilities-container{
 
@@ -15,6 +16,9 @@
 }
 .P1-pokecard-Card-Header {
   background-color: blue;
+}
+.P1-dropdown-wrap {
+  display: flex;
 }
 
 // CARD COLORS
@@ -56,4 +60,7 @@
 }
 .P1-card-image-electric {
   background: linear-gradient(#f5b615, black)
+}
+.P1-card-image-ground {
+  background: linear-gradient(#643939, black)
 }

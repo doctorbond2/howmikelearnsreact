@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import "https://fonts.googleapis.com/css2?family=Estonia&family=Montserrat&family=Open+Sans:wght@300&family=Poppins&family=Raleway:wght@300;400&family=Urbanist:wght@100&display=swap%27";
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
 .ATM-base-style {
   background-color: rgb(172, 164, 164);
   height: 600px;
@@ -107,6 +108,10 @@
   background-color: blue;
 }
 
+.P1-dropdown-wrap {
+  display: flex;
+}
+
 .P1-card-image-fire {
   background: linear-gradient(#ed3f0d, black);
 }
@@ -157,6 +162,10 @@
 
 .P1-card-image-electric {
   background: linear-gradient(#f5b615, black);
+}
+
+.P1-card-image-ground {
+  background: linear-gradient(#643939, black);
 }
 
 * {
