@@ -181,3 +181,12 @@ export interface Result {
   name: string;
   url: string;
 }
+export interface SortedPokemon {
+  name?: string;
+  type1?: string;
+  type2?: string;
+  url?: string;
+  id?: number;
+}
+
+// FETCHA ALL DATA, BYGG FRÅN DENNA INTERFACE. LOOPA SEDAN IGEN EN ARRAY AV DENNA TYP. DU KAN DÅ GÖRA CHECKS FÖR TYP OCH SÄTTA ALLA PROPS.
