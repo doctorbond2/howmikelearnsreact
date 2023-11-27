@@ -12,6 +12,7 @@ type Props = {
 
 const P1Pokemon: React.FC<Props> = ({ pokeURL }) => {
   const [pokeData, setPokeData] = useState<Pokedex>({});
+
   useEffect(() => {
     console.log(pokeURL);
     const fetchData = async () => {
