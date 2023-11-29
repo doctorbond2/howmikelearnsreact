@@ -1,7 +1,5 @@
 import React, { ChangeEvent } from "react";
 import { Link, Navigate, useNavigate, useLocation } from "react-router-dom";
-import { useState } from "react";
-import SetTheCount from "./SetTheCount";
 
 interface Props {}
 

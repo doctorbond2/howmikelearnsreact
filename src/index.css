@@ -176,6 +176,35 @@
   background: linear-gradient(#643939, black);
 }
 
+.RU-navbar {
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+  width: 10rem;
+  height: 100vh;
+  font-family: Arial;
+  font-size: 1.3rem;
+}
+
+.RU-activity-box {
+  border: 2px solid black;
+  width: 30%;
+}
+
+.RU-add-button-style {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: black;
+  color: white;
+}
+.RU-add-button-style:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
 * {
   margin: 0;
   padding: 0;

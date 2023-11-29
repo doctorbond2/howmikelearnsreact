@@ -1,19 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-type Props = {
-  myActivities: any;
-  setMyActivities: any;
-};
+type Props = {};
 
-const StreakCounter: React.FC = ({ myActivities, setMyActivities }) => {
+const StreakCounter: React.FC = ({}) => {
   const handleAdd = (e: any) => {
     e.preventDefault();
     let addText = document.querySelector("#task-input") as HTMLInputElement;
     let addNumber = document.querySelector("#number-input") as HTMLInputElement;
     let newActivity = { activity: addText.value, count: addNumber.value };
-    console.log(newActivity);
-    setMyActivities([...myActivities, newActivity]);
   };
   return (
     <>

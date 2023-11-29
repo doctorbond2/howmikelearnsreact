@@ -1,22 +1,16 @@
-import { useState } from "react";
-import { Button } from "react-bootstrap";
-import TillFredag from "./pages/TillFredag";
-import TodoList from "./components/TodoList/TodoList";
-import TicTac from "./pages/TicTac";
+import TillFredag from "./pages/Mainpages/TillFredag";
+import TicTac from "./pages/Mainpages/TicTac";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar";
-import { URLOptions } from "./types/MainTypes";
-import About from "./pages/About";
-import Home from "./pages/Home";
-import TodoListTest from "./pages/TodoListTest";
-import TodoTwo from "./pages/TodoTwo";
-import FetchAPIB from "./pages/FetchAPIB";
-import P1Pokemon from "./pages/P1Pokemon";
-import RUser from "./pages/subpages/RUser";
-import RUserList from "./pages/subpages/RUserList";
-import StreakCounter from "./pages/StreakCounter";
-import SetTheCount from "./pages/RouterUsers";
-import RouterUsers from "./pages/RouterUsers";
+import About from "./pages/Mainpages/About";
+import Home from "./pages/Mainpages/Home";
+import TodoListTest from "./pages/Mainpages/TodoListTest";
+import TodoTwo from "./pages/Mainpages/TodoTwo";
+import FetchAPIB from "./pages/Mainpages/FetchAPIB";
+import P1Pokemon from "./pages/Mainpages/P1Pokemon";
+import RUser from "./pages/subpages/RouterUser/RUser";
+import RUserList from "./pages/subpages/RouterUser/RUserList";
+import RouterUsers from "./pages/Mainpages/RouterUsers";
 interface Props {}
 const App: React.FC<Props> = () => {
   return (
@@ -40,11 +34,8 @@ const App: React.FC<Props> = () => {
           <Route
             path="/RedirectTodoListTest"
             element={<Navigate to="TodoListTest" />}
-          ></Route>
-          <Route path="RouterUsers" element={<RouterUsers />}>
-            <Route path="user" element={<RUser />} />
-            <Route path="userlist" element={<RUserList />} />
-          </Route>
+          />
+          <Route path="RouterUsers/*" element={<RouterUsers />} />
         </Routes>
       </BrowserRouter>
     </>
