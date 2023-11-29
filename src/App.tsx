@@ -8,9 +8,8 @@ import TodoListTest from "./pages/Mainpages/TodoListTest";
 import TodoTwo from "./pages/Mainpages/TodoTwo";
 import FetchAPIB from "./pages/Mainpages/FetchAPIB";
 import P1Pokemon from "./pages/Mainpages/P1Pokemon";
-import RUser from "./pages/subpages/RouterUser/RUser";
-import RUserList from "./pages/subpages/RouterUser/RUserList";
 import RouterUsers from "./pages/Mainpages/RouterUsers";
+import FredagsRoutes from "./pages/Mainpages/FredagsRoutes";
 interface Props {}
 const App: React.FC<Props> = () => {
   return (
@@ -36,6 +35,7 @@ const App: React.FC<Props> = () => {
             element={<Navigate to="TodoListTest" />}
           />
           <Route path="RouterUsers/*" element={<RouterUsers />} />
+          <Route path="FredagsRoutes/*" element={<FredagsRoutes />} />
         </Routes>
       </BrowserRouter>
     </>
