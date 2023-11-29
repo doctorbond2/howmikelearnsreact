@@ -22,13 +22,13 @@ const TTodoCard: React.FC<Props> = ({
 }) => {
   const { task, completed, date, id } = todo;
   const handleClick = () => {
-    setTodo({ ...todo, completed: !todo.completed });
+    // setTodo({ ...todo, completed: !todo.completed });
     setTodos(
       todos.map((x, i) => {
         if (x.id === todo.id) {
           return {
             ...x,
-            completed: !completed,
+            completed: !x.completed,
           };
         } else {
           return x;

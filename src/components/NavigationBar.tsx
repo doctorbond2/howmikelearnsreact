@@ -15,9 +15,11 @@ const NavigationBar = (props: Props) => {
     { value: "TodoTwo", label: "TodoTwo" },
     { value: "FetchAPIB", label: "FetchAPIB" },
     { value: "P1Pokemon", label: "P1Pokemon" },
+    { value: "TicTac", label: "TicTac" },
+    { value: "RouterUsers", label: "Router Users" },
   ];
   const navigateValue = (value: string) => {
-    navigate(`/${value}`);
+    navigate(`${value}`);
   };
   return (
     <>

@@ -16,7 +16,8 @@ const TTInputField: React.FC<Props> = ({ handleTodoAdd, setTodo, todo }) => {
     targetProperty: keyof TTodo
   ) => {
     const { value } = e.target as HTMLInputElement;
-    setTodo((prev) => ({ ...prev, [targetProperty]: value }));
+    const newTodo: TTodo = { ...todo, [targetProperty]: value };
+    setTodo(newTodo);
   };
   const handleCheckbox = (e: React.MouseEvent) => {
     let { checked } = e.target as HTMLInputElement;

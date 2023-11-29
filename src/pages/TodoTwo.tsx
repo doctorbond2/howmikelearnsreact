@@ -8,7 +8,6 @@ interface Props {}
 const TodoTwo: React.FC<Props> = ({}) => {
   return (
     <>
-      <NavigationBar />
       <TodoTwoMain />
     </>
   );

@@ -16,7 +16,6 @@ type Props = {};
 const TodoListTest: React.FC<Props> = ({}) => {
   return (
     <>
-      <NavigationBar />
       <BasicTodoMain />
     </>
   );

@@ -10,7 +10,6 @@ type Props = {};
 const TillFredag = ({}) => {
   return (
     <>
-      <NavigationBar />
       <Basic />
     </>
   );

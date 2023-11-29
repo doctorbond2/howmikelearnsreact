@@ -6,7 +6,6 @@ import P1Main from "../components/P1-Pokemon/P1Main";
 const P1Pokemon: React.FC<Props> = ({}) => {
   return (
     <>
-      <NavigationBar />
       <P1Main />
     </>
   );
