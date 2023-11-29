@@ -4,8 +4,9 @@ import { RUActivity } from "../../Mainpages/RouterUsers";
 type Props = {
   setMyActivities: React.Dispatch<React.SetStateAction<RUActivity[]>>;
   handleSubmit: (e: React.MouseEvent) => void;
-  handleChange: (e: React.ChangeEvent) => void;
+  handleChange: (e: React.ChangeEvent, changeTarget: keyof RUActivity) => void;
   setNextThing: React.Dispatch<React.SetStateAction<Partial<RUActivity>>>;
+  myActivities: RUActivity[];
 };
 
 const RUser: React.FC<Props> = ({
@@ -24,9 +25,21 @@ const RUser: React.FC<Props> = ({
           textAlign: "center",
         }}
       >
-        <input type="text" placeholder="Task" onChange={handleChange} />
+        <input
+          type="text"
+          placeholder="Task"
+          onChange={(e) => {
+            handleChange(e, "activity");
+          }}
+        />
         <br></br>
-        <input type="number" placeholder="Streak" />
+        <input
+          type="number"
+          placeholder="Streak"
+          onChange={(e) => {
+            handleChange(e, "streak");
+          }}
+        />
         <button onClick={handleSubmit}>Add task</button>
       </div>
     </>
