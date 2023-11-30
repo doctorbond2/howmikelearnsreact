@@ -36,6 +36,10 @@ const App: React.FC<Props> = () => {
           />
           <Route path="RouterUsers/*" element={<RouterUsers />} />
           <Route path="FredagsRoutes/*" element={<FredagsRoutes />} />
+          <Route
+            path="/*"
+            element={<h1 style={{ textAlign: "center" }}>Page not found</h1>}
+          />
         </Routes>
       </BrowserRouter>
     </>

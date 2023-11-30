@@ -42,7 +42,7 @@ export interface User {
 }
 
 export interface FRInter {
-  username: string;
+  userName: string;
   name: string;
   age: number;
   location: {

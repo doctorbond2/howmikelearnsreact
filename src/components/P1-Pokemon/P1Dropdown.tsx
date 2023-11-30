@@ -87,14 +87,13 @@ const P1Dropdown: React.FC<Props> = ({}) => {
     const { value } = e.target as HTMLSelectElement;
     setCurrentType(value);
     value === "All" ? setSortActive(false) : setSortActive(true);
-
     if (value === "All") {
       setSortedPokemon(allPokemon);
     } else {
       setSortedPokemon(
         allPokemon.filter((x) => {
           return x.type1 === value || x.type2 === value;
-        })
+        }) || allPokemon
       );
     }
   };
