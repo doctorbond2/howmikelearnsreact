@@ -1,0 +1,47 @@
+[
+  {
+    "userName": "CaptainFrisk",
+    "name": "Test Testsson",
+    "age": 99,
+    "location": {
+      "country": "Sweden",
+      "city": "Stockholm"
+    }
+  },
+  {
+    "userName": "OceanExplorer",
+    "name": "Alexandra Andersson",
+    "age": 45,
+    "location": {
+      "country": "Sweden",
+      "city": "Gothenburg"
+    }
+  },
+  {
+    "userName": "AdventureSeeker",
+    "name": "Erik Eriksson",
+    "age": 30,
+    "location": {
+      "country": "Sweden",
+      "city": "Malmö"
+    }
+  },
+  {
+    "userName": "NatureLover",
+    "name": "Emma Svensson",
+    "age": 25,
+    "location": {
+      "country": "Sweden",
+      "city": "Uppsala"
+    }
+  },
+  {
+    "userName": "MountainHiker",
+    "name": "Gustav Gustavsson",
+    "age": 37,
+    "location": {
+      "country": "Sweden",
+      "city": "Örebro"
+    }
+  }
+]

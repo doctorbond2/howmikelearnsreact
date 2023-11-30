@@ -40,3 +40,13 @@ export interface User {
     bs: string;
   };
 }
+
+export interface FRInter {
+  username: string;
+  name: string;
+  age: number;
+  location: {
+    country: string;
+    city: string;
+  };
+}

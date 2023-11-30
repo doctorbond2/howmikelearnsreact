@@ -17,6 +17,7 @@ const NavigationBar = (props: Props) => {
     { value: "P1Pokemon", label: "P1Pokemon" },
     { value: "TicTac", label: "TicTac" },
     { value: "RouterUsers", label: "Router Users" },
+    { value: "FredagsRoutes", label: "Userlist till fredag" },
   ];
   const navigateValue = (value: string) => {
     navigate(`${value}`);
