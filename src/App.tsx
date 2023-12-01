@@ -10,6 +10,7 @@ import FetchAPIB from "./pages/Mainpages/FetchAPIB";
 import P1Pokemon from "./pages/Mainpages/P1Pokemon";
 import RouterUsers from "./pages/Mainpages/RouterUsers";
 import FredagsRoutes from "./pages/Mainpages/FredagsRoutes";
+import ParamsPractice from "./pages/Mainpages/ParamsPractice";
 interface Props {}
 const App: React.FC<Props> = () => {
   return (
@@ -36,6 +37,7 @@ const App: React.FC<Props> = () => {
           />
           <Route path="RouterUsers/*" element={<RouterUsers />} />
           <Route path="FredagsRoutes/*" element={<FredagsRoutes />} />
+          <Route path="ParamsPractice/*" element={<ParamsPractice />} />
           <Route
             path="/*"
             element={<h1 style={{ textAlign: "center" }}>Page not found</h1>}
