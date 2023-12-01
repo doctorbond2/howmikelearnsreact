@@ -18,9 +18,10 @@ const NavigationBar = (props: Props) => {
     { value: "TicTac", label: "TicTac" },
     { value: "RouterUsers", label: "Router Users" },
     { value: "FredagsRoutes", label: "Userlist till fredag" },
+    { value: "ParamsPractice", label: "Param Practice" },
   ];
   const navigateValue = (value: string) => {
-    navigate(`${value}`);
+    navigate(value);
   };
   return (
     <>
@@ -38,15 +39,7 @@ const NavigationBar = (props: Props) => {
           />
         </Button>
 
-        <div className="navbar-input-select-group">
-          {/* <FormSelect onChange={handleChange}>
-      {options.map((x, index) => (
-        <option key={`s-${index}`} value={x.value}>
-          {x.label}
-        </option>
-      ))}
-    </FormSelect> */}
-        </div>
+        <div className="navbar-input-select-group"></div>
         <Dropdown>
           <Dropdown.Toggle variant="primary" id="dropdown-basic">
             Uppgifter

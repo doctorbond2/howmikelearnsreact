@@ -13,8 +13,8 @@ const FRUser: React.FC<Props> = ({ user }) => {
     <>
       {" "}
       {
-        <Link to="FRProfile" state={user}>
-          {name}
+        <Link style={{ width: "fit-content" }} to="FRProfile" state={user}>
+          {userName}
         </Link>
       }
     </>

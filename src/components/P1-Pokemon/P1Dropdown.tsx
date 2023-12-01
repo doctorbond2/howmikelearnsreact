@@ -135,13 +135,6 @@ const P1Dropdown: React.FC<Props> = ({}) => {
           </select>
         </div>
 
-        {/* <button
-        onClick={() => {
-          setShowPokemon(!showPokemon);
-        }}
-      >
-        Show Pokemon
-      </button> */}
         {pokeURL && <P1Pokemon {...{ pokeURL }} />}
       </div>
     </>
